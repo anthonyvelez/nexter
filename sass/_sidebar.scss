@@ -4,7 +4,7 @@
 	width: 8rem;
 
 	grid-column: sidebar-start / sidebar-end;
-	grid-row: 1 / -1;
+	grid-row: 1 / 7;
 
 	transition: width .2s;
 
@@ -58,7 +58,7 @@
 		display: inline-block;
 		transition: all .2s;
 
-		&:active,
+		&:link,
 		&:visited {
 			color: white;
 		}

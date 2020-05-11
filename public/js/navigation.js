@@ -23,3 +23,12 @@ sidebar.addEventListener('click', (event) => {
 		sideWidth = 80;
 	}
 });
+
+//false buttons
+const falseBtns = document.querySelectorAll('#false');
+
+falseBtns.forEach((btn) => {
+	btn.addEventListener('click', () => {
+		event.preventDefault();
+	});
+});
