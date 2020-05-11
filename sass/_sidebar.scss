@@ -1,58 +1,70 @@
 .sidebar {
-    background-color: $color-primary;
+	background-color: $color-primary;
+	z-index: 50;
+	width: 8rem;
 
-    grid-column: sidebar-start / sidebar-end;
-    grid-row: 1 / -1;
+	grid-column: sidebar-start / sidebar-end;
+	grid-row: 1 / -1;
 
-    display: flex;
-    justify-content: center;
+	transition: width .2s;
 
-    @media only screen and (max-width: $bp-largest) {
-        grid-column: 1 / -1;
-        grid-row: 1 / 2;
-        justify-content: flex-end;
-        justify-items: center;
-}
-}
+	@media only screen and (max-width: $bp-largest) {
+		grid-column: 1 / -1;
+		grid-row: 1 / 2;
+		justify-content: flex-end;
+		justify-items: center;
+	}
 
-
-.nav-btn {
-    border: none;
-    border-radius: 0;
-
-    background-color: #fff;
-    height: 2px;
-    width: 4.5rem;
-    margin-top: 4rem;
-
-    &::before,
-    &::after {
-         content: "";
-         background-color: #fff;
-         height: 2px;
-         width: 4.5rem; 
-         display: block;
-    }
-
-    &::before {
-        transform: translateY(-1.5rem);
-    }
-
-    &::after {
-        transform: translateY(1.3rem);
-    }
-
-    @media only screen and (max-width: $bp-largest) {
-        margin-top: 2.9rem;
-        margin-right: 1rem;
-
-        &::before {
-            transform: translateY(-1.2rem);
-        }
-    
-        &::after {
-            transform: translateY(1rem);
-        }
+	&__active {
+		width: 25rem;
+	}
 }
 
+.nav-top {
+	display: flex;
+	flex-direction: column;
+
+	&__btn {
+		display: flex;
+		align-self: center;
+		fill: #fff;
+		width: 5rem;
+		transition: fill .2s;
+
+		&:hover {
+			fill: $color-primary-dark;
+		}
+	}
+
+	&__items {
+		display: flex;
+		flex-direction: column;
+		align-self: center;
+
+		text-decoration: none;
+		color: white;
+		font-size: 1.7rem;
+		list-style-type: none;
+	}
+
+	&__link {
+		text-transform: uppercase;
+		text-decoration: none;
+		font-family: $font-display;
+		font-weight: 400;
+		margin-bottom: 1rem;
+		visibility: hidden;
+		opacity: 0;
+		display: inline-block;
+		transition: all .2s;
+
+		&:active,
+		&:visited {
+			color: white;
+		}
+
+		&:hover {
+			color: $color-primary-dark;
+		}
+	}
 }
