@@ -4,19 +4,24 @@
 	width: 8rem;
 
 	grid-column: sidebar-start / sidebar-end;
-	grid-row: 1 / 7;
-
-	transition: width .2s;
+	grid-row: 1 / -1;
+	transition: all .2s;
 
 	@media only screen and (max-width: $bp-largest) {
 		grid-column: 1 / -1;
 		grid-row: 1 / 2;
 		justify-content: flex-end;
 		justify-items: center;
+		width: auto;
+		height: auto;
 	}
 
 	&__active {
 		width: 25rem;
+	}
+
+	&__mobile {
+		height: 12rem;
 	}
 }
 
@@ -25,11 +30,16 @@
 	flex-direction: column;
 
 	&__btn {
+		overflow: hidden;
 		display: flex;
 		align-self: center;
 		fill: #fff;
 		width: 5rem;
-		transition: fill .2s;
+		transition: all .2s;
+
+		@media only screen and (max-width: $bp-largest) {
+			margin-top: -6.5rem;
+		}
 
 		&:hover {
 			fill: $color-primary-dark;
@@ -45,6 +55,11 @@
 		color: white;
 		font-size: 1.7rem;
 		list-style-type: none;
+
+		@media only screen and (max-width: $bp-largest) {
+			flex-direction: row;
+			transform: translateY(-5.25rem);
+		}
 	}
 
 	&__link {
@@ -53,10 +68,15 @@
 		font-family: $font-display;
 		font-weight: 400;
 		margin-bottom: 1rem;
-		visibility: hidden;
-		opacity: 0;
+		visibility: hidden; //change hidden
+		opacity: 0; //change back 0
 		display: inline-block;
 		transition: all .2s;
+
+		@media only screen and (max-width: $bp-largest) {
+			margin-bottom: 0;
+			margin-right: 3rem;
+		}
 
 		&:link,
 		&:visited {
